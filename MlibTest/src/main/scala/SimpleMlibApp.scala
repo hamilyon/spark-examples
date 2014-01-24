@@ -9,7 +9,7 @@ object SimpleMlibApp {
   def main(args: Array[String]) {
     val sc = new SparkContext("local", "Simple App", "/home/woflking/Projects/spark/spark_source/incubator-spark/",
       List("target/scala-2.9.3/simple-mlib-project_2.9.3-1.0.jar"))
-    val data = sc.textFile("/home/woflking/Projects/spark/spark_source/incubator-spark/mllib/data/sample_svm_data.txt")
+    val data = sc.textFile("./sample_svm_data.txt")
     val parsedData = data.map { line =>
         val parts = line.split(' ')
         LabeledPoint(parts(0).toDouble, parts.tail.map(x => x.toDouble).toArray)
